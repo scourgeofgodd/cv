@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orhan Celal Yetkin - Özgeçmiş</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        :root {
+            --primary-color: #2e5bff;
+            --secondary-color: #2e384d;
+            --accent-color: #8c54ff;
+            --text-dark: #2e384d;
+            --text-light: #8798ad;
+            --text-white: #ffffff;
+            --bg-light: #f5f8fa;
+            --bg-white: #ffffff;
+            --sidebar-width: 280px;
+            --content-width: calc(100% - var(--sidebar-width));
+            --border-color: #e8ecef;
+            --shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+            font-weight: 300;
+        }
+        
+        .cv-container {
+            max-width: 1000px;
+            margin: 30px auto;
+            display: flex;
+            background-color: var(--bg-white);
+            box-shadow: var(--shadow);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .control-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .control-button {
+            background-color: var(--primary-color);
+            color: var(--text-white);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .control-button:hover {
+            background-color: var(--accent-color);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .material-icons {
+            font-size: 18px;
+        }
+        
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: var(--secondary-color);
+            color: var(--text-white);
+            padding: 40px 25px;
+        }
+        
+        .profile {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .profile-name {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .profile-title {
+            font-size: 16px;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        
+        .profile-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background-color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 52px;
+            color: var(--text-white);
+            font-weight: 300;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+        
+        .sidebar-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .sidebar-content {
+            font-size: 14px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 10px;
+        }
+        
+        .contact-text {
+            font-size: 14px;
+        }
+        
+        .skills-list {
+            list-style: none;
+        }
+        
+        .skill-item {
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .skill-bar {
+            height: 6px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .skill-level {
+            height: 100%;
+            background-color: var(--primary-color);
+        }
+        
+        .main-content {
+            width: var(--content-width);
+            padding: 40px;
+        }
+        
+        .content-section {
+            margin-bottom: 35px;
+        }
+        
+        .content-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+        }
+        
+        .content-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 25px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            top: 14px;
+            left: 6px;
+            width: 2px;
+            height: calc(100% + 10px);
+            background-color: var(--primary-color);
+            opacity: 0.3;
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        .timeline-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-subtitle {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-period {
+            font-size: 14px;
+            color: var(--text-light);
+            font-weight: 400;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .timeline-description {
+            font-size: 14px;
+            text-align: justify;
+        }
+        
+        .competencies {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .competency {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            background-color: var(--bg-light);
+            border-radius: 6px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .competency:hover {
+            background-color: var(--primary-color);
+            color: var(--text-white);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        .dark-theme {
+            --primary-color: #7289da;
+            --secondary-color: #2c2f33;
+            --accent-color: #99aab5;
+            --text-dark: #ffffff;
+            --text-light: #99aab5;
+            --bg-light: #23272a;
+            --bg-white: #2c2f33;
+            --border-color: #23272a;
+            --shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .dark-theme .skill-bar {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .dark-theme .competency {
+            background-color: #23272a;
+            color: #ffffff;
+        }
+        
+        .dark-theme .competency:hover {
+            background-color: var(--primary-color);
+        }
+        
+        @media (max-width: 900px) {
+            .cv-container {
+                flex-direction: column;
+                width: 95%;
+            }
+            
+            .sidebar, .main-content {
+                width: 100%;
+            }
+            
+            .profile-image {
+                width: 120px;
+                height: 120px;
+                font-size: 42px;
+            }
+            
+            .competencies {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .sidebar {
+                border-radius: 12px 12px 0 0;
+            }
+        }
+        
+        @media print {
+            body {
+                background-color: var(--bg-white);
+            }
+            
+            .cv-container {
+                box-shadow: none;
+                margin: 0;
+                max-width: 100%;
+            }
+            
+            .control-buttons {
+                display: none;
+            }
+            
+            @page {
+                margin: 1cm;
+                size: A4;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <div class="control-buttons">
+            <button class="control-button" onclick="toggleTheme()">
+                <span class="material-icons">brightness_medium</span> Tema
+            </button>
+            <button class="control-button" onclick="window.print()">
+                <span class="material-icons">print</span> Yazdır
+            </button>
+        </div>
+        
+        <div class="sidebar">
+            <div class="profile">
+                <div class="profile-image">OCY</div>
+                <div class="profile-name">ORHAN CELAL YETKİN</div>
+                <div class="profile-title">Senior MPLS/TTVPN Yöneticisi</div>
+            </div>
+            
+            <div class="sidebar-section">
+                <div class="sidebar-title">
+                    <span class="material-icons">person</span> Kişisel Bilgiler
+                </div>
+                <div class="sidebar-content">
+                    <div class="contact-item">
+                        <span class="material-icons">event</span>
+                        <div class="contact-text">03.03.1973</div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="material-icons">work</span>
+                        <div class="contact-text">30+ Yıl Deneyim</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <div class="sidebar-title">
+                    <span class="material-icons">auto_graph</span> Teknik Beceriler
+                </div>
+                <div class="sidebar-content">
+                    <ul class="skills-list">
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>IP/MPLS</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 95%;"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>L2VPN/L3VPN</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 90%;"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>BGP/QoS</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 85%;"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>Alcatel/Huawei</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 90%;"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>Arıza Analizi</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 95%;"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>Network Yönetimi</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 95%;"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <div class="sidebar-title">
+                    <span class="material-icons">psychology</span> Yönetim Becerileri
+                </div>
+                <div class="sidebar-content">
+                    <ul class="skills-list">
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>Ekip Yönetimi</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 90%;"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>Zaman Yönetimi</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 95%;"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>Stres Yönetimi</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 85%;"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>Süreç Yönetimi</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 90%;"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="content-section">
+                <div class="content-title">
+                    <span class="material-icons">person_outline</span> Profil
+                </div>
+                <p>
+                    30 yılı aşkın telekomünikasyon sektörü deneyimine sahip, ağ teknolojileri ve kurumsal müşteri çözümleri konusunda uzmanlaşmış bir yöneticiyim. PTT ve Türk Telekom'da teknisyen seviyesinden yöneticilik pozisyonuna yükselerek, özellikle MPLS ve TTVPN servisleri konusunda geniş bilgi ve deneyim sahibiyim. Stresli ortamlarda etkili çalışabilme ve zaman yönetimi konusunda güçlü yeteneklere sahibim.
+                </p>
+            </div>
+            
+            <div class="content-section">
+                <div class="content-title">
+                    <span class="material-icons">work</span> İş Deneyimi
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-title">TTVPN Servis Yöneticisi</div>
+                    <div class="timeline-subtitle">Türk Telekom</div>
+                    <div class="timeline-period">
+                        <span class="material-icons">date_range</span> 2019 - 2025
+                    </div>
+                    <div class="timeline-description">
+                        IP/MPLS omurgası üzerinde L2VPN ve L3VPN tanımlarını hazırlayan ekibi yönettim. Kurumsal müşterilerin MPLS uçlarının arıza takibi, analizi ve sorun çözümünü koordine ettim. Müşteri talepleri doğrultusunda LAN bloğu konfigürasyonu, MPLS cihazlarında tanım atılması, QOS tanımları, BGP konfigürasyonu, VRRP ve MCLAG yedekleme süreçlerini yönettim. Farklı teknolojilerdeki (DSL, FTTX, Fiber) lokasyonların MPLS ağına uçtan uca entegrasyonunu gerçekleştirdim.
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-title">MPLS Yöneticisi</div>
+                    <div class="timeline-subtitle">Türk Telekom - İstanbul Anadolu Yakası Bölgesi Network Yönetim Sistemleri</div>
+                    <div class="timeline-period">
+                        <span class="material-icons">date_range</span> 2013 - 2018
+                    </div>
+                    <div class="timeline-description">
+                        Network yönetim sistemlerinde MPLS yöneticisi olarak görev aldım. MPLS altyapısının kesintisiz hizmet vermesi için gerekli operasyonel süreçleri yürüttüm. Arıza yönetimi, performans izleme ve iyileştirme çalışmalarını gerçekleştirdim.
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-title">Uzman Yardımcısı</div>
+                    <div class="timeline-subtitle">Türk Telekom</div>
+                    <div class="timeline-period">
+                        <span class="material-icons">date_range</span> 2005 - 2013
+                    </div>
+                    <div class="timeline-description">
+                        Endüstriyel Elektronik eğitimim sonrası uzman yardımcısı olarak görevime devam ettim. Telekomünikasyon teknolojileri ve ağ sistemleri konusunda uzmanlık geliştirdim. Kurumsal müşteri çözümleri ve network altyapı planlaması konularında çalıştım.
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-title">Şef</div>
+                    <div class="timeline-subtitle">Türk Telekom</div>
+                    <div class="timeline-period">
+                        <span class="material-icons">date_range</span> 1995 - 2005
+                    </div>
+                    <div class="timeline-description">
+                        PTT'den Türk Telekom'a geçişle birlikte kariyerime devam ettim. Kurumsal ürünlerin arıza ve tesis süreçlerinde görev aldım ve kısa sürede şeflik pozisyonuna yükseldim. Ekip yönetimi ve müşteri ilişkileri konularında deneyim kazandım.
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-title">Teknisyen</div>
+                    <div class="timeline-subtitle">PTT</div>
+                    <div class="timeline-period">
+                        <span class="material-icons">date_range</span> 1990 - 1995
+                    </div>
+                    <div class="timeline-description">
+                        Telekomünikasyon kariyerime PTT'de teknisyen olarak başladım. Temel telekomünikasyon altyapıları ve sistemleri konusunda bilgi ve deneyim edindim.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <div class="content-title">
+                    <span class="material-icons">school</span> Eğitim
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-title">Yönetim Organizasyon Yüksek Lisans</div>
+                    <div class="timeline-subtitle">Beykent Üniversitesi</div>
+                    <div class="timeline-period">
+                        <span class="material-icons">date_range</span> 2014 - 2016
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-title">İşletme</div>
+                    <div class="timeline-subtitle">Anadolu Üniversitesi</div>
+                    <div class="timeline-period">
+                        <span class="material-icons">date_range</span> 2009 - 2013
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-title">Endüstriyel Elektronik</div>
+                    <div class="timeline-subtitle">Sakarya Üniversitesi Meslek Yüksekokulu</div>
+                    <div class="timeline-period">
+                        <span class="material-icons">date_range</span> Mezuniyet: 2005
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <div class="content-title">
+                    <span class="material-icons">psychology_alt</span> Yetkinlikler
+                </div>
+                <div class="competencies">
+                    <div class="competency">
+                        <span class="material-icons">check_circle</span> Ekip Yönetimi
+                    </div>
+                    <div class="competency">
+                        <span class="material-icons">check_circle</span> Problem Çözme
+                    </div>
+                    <div class="competency">
+                        <span class="material-icons">check_circle</span> Zaman Yönetimi
+                    </div>
+                    <div class="competency">
+                        <span class="material-icons">check_circle</span> Stres Yönetimi
+                    </div>
+                    <div class="competency">
+                        <span class="material-icons">check_circle</span> Müşteri İlişkileri
+                    </div>
+                    <div class="competency">
+                        <span class="material-icons">check_circle</span> Teknik Destek
+                    </div>
+                    <div class="competency">
+                        <span class="material-icons">check_circle</span> Analitik Düşünme
+                    </div>
+                    <div class="competency">
+                        <span class="material-icons">check_circle</span> Bağımsız Çalışma
+                    </div>
+                    <div class="competency">
+                        <span class="material-icons">check_circle</span> Koordinasyon
+                    </div>
+                    <div class="competency">
+                        <span class="material-icons">check_circle</span> İletişim
+                    </div>
+                    <div class="competency">
+                        <span class="material-icons">check_circle</span> Sistem Entegrasyonu
+                    </div>
+                    <div class="competency">
+                        <span class="material-icons">check_circle</span> Süreç Yönetimi
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <div class="content-title">
+                    <span class="material-icons">memory</span> Teknik Uzmanlık Alanları
+                </div>
+                <div class="competencies">
+                    <div class="competency">
+                        <span class="material-icons">check_circle</span> IP/MPLS
+                    </div>
+                    <div class="competency">
+                        <span class="material-icons">check_circle</span> L2VPN/L3VPN
+                    </div>
+                    <div class="competency">
+                        <span class="material-icons">check_circle</span> TTVPN
+                    </div>
+                    <div class="competency">
+                        <span class="material-icons">check_circle</span> Alcatel 7750
+                    </div>
+                    <div class="competency">
+                        <span class="material-icons">check_circle</span> Huawei NE40
+                    </div>
+                    <div class="competency">
+                        <span class="material-icons">check_circle</span> L2-L3 Switch
+                    </div>
+                    <div class="competency">
+                        <span class="material-icons">check_circle</span> QoS
+                    </div>
+                    <div class="competency">
+                        <span class="material-icons">check_circle</span> BGP
+                    </div>
+                    <div class="competency">
+                        <span class="material-icons">check_circle</span> VRRP/MCLAG
+                    </div>
+                    <div class="competency">
+                        <span class="material-icons">check_circle</span> DSL/FTTX/Fiber
+                    </div>
+                    <div class="competency">
+                        <span class="material-icons">check_circle</span> DSLAM Sistemleri
+                    </div>
+                    <div class="competency">
+                        <span class="material-icons">check_circle</span> Omni Switchler
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+        }
+    </script>
+</body>
+</html>
